@@ -1,7 +1,7 @@
 import React from 'react';
 import SideNav from 'react-simple-sidenav';
 
-const SideNavigation = (props) => {
+const ALoigation = (props) => {
     return (
         <div>
             <SideNav showNav={props.showNav}
@@ -13,4 +13,4 @@ const SideNavigation = (props) => {
     )
 };
 
-export default SideNavigation;
+export default ALoigation;
