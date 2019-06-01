@@ -1,16 +1,21 @@
 import React from 'react';
 import SideNav from 'react-simple-sidenav';
+import SideNavItems from "./sideNavItems";
 
-const ALoigation = (props) => {
+const SideNavigation = (props) => {
     return (
         <div>
             <SideNav showNav={props.showNav}
-            onHideNav={props.onHideNav}
+                     onHideNav={props.onHideNav}
+                     navStyle={{
+                         background: '#242424',
+                         maxWidth: '40vh',
+                     }}
             >
-                OPTIONS
+                <SideNavItems/>
             </SideNav>
         </div>
     )
 };
 
-export default ALoigation;
+export default SideNavigation;
