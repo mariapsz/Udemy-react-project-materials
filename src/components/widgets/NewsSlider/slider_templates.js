@@ -12,6 +12,7 @@ const SliderTemplates = (props) => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
+        ...props.settings
     };
 
     switch (props.type) {
@@ -22,7 +23,7 @@ const SliderTemplates = (props) => {
                         <div className={styles.featured_item}>
                             <div className={styles.featured_image}
                                  style={{
-                                     background: `url(../images/articles/${item.image})`
+                                     background: 'red'
                                  }}>
                                 <Link to={`/articles/${item.id}`}>
                                     <div className={styles.featured_caption}>
@@ -33,18 +34,18 @@ const SliderTemplates = (props) => {
                             </div>
                         </div>
                     </div>
-            )
+                )
             });
             break;
-            default:
+        default:
             template = null;
-            }
+    }
 
-            return (
-                <Slick {...settings}>
-                    {template}
-                </Slick>
-            )
-            };
+    return (
+        <Slick {...settings}>
+            {template}
+        </Slick>
+    )
+};
 
-            export default SliderTemplates;
+export default SliderTemplates;
