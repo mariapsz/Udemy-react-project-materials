@@ -10,10 +10,18 @@ const Button = (props) => {
         case 'loadmore':
             template = (
                 <div className={styles.blue_btn}
-                    onClick={props.loadMore}
+                     onClick={props.loadMore}
                 >
                     {props.cta}
                 </div>
+            );
+            break;
+        case 'linkTo' :
+            template = (
+                <Link to={props.linkTo}
+                      className={styles.blue_btn}>
+                    {props.cta}
+                </Link>
             );
             break;
         default:
