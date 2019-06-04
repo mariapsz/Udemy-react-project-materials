@@ -5,6 +5,7 @@ import axios from 'axios';
 import {URL} from '../../../config';
 import VideosListTemplate from './videosListTemplate';
 
+let count = 0;
 class VideosList extends React.Component {
     state = {
         teams: [],
@@ -15,6 +16,9 @@ class VideosList extends React.Component {
     };
 
     componentWillMount() {
+        console.log('conut:', this.count);
+        count += 1;
+        console.log(this.state.start, this.state.end);
         this.request(this.state.start, this.state.end)
     }
 
@@ -28,7 +32,7 @@ class VideosList extends React.Component {
                 })
         }
 
-        axios.get(`${URL}/videos?start=${start}&_end=${end}`)
+        axios.get(`${URL}/videos?_start=${start}&_end=${end}`)
             .then(response => {
                 this.setState({
                     videos: [...this.state.videos, ...response.data]
@@ -60,6 +64,7 @@ class VideosList extends React.Component {
 
     renderVideos = () => {
         let template = null;
+        console.log('das', this.state.videos);
         switch (this.props.type) {
             case('card'):
                 template = <VideosListTemplate data={this.state.videos} teams={this.state.teams}/>;
